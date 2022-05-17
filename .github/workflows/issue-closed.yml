@@ -1,3 +1,4 @@
+# Triggers when an issue is closed
 name: "Issue closed"
 on:
   issues:
