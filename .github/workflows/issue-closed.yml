@@ -23,7 +23,7 @@ jobs:
       - name : Create Implementation Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           title: "[Implementation]${{ steps.feature.outputs.title }}"
           body: |
             #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
@@ -36,7 +36,7 @@ jobs:
       - name : Create Security Issue
         uses: actions-ecosystem/action-create-issue@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           title: "[Security]${{ steps.feature.outputs.title }}"
           body: |
             #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
@@ -50,7 +50,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ steps.feature.outputs.number }}
-          token: ${{ secrets.PROJECT_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           body: |
             Implementation issue created.
             Security issue created.
