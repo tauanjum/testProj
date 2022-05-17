@@ -13,8 +13,8 @@ jobs:
         id: feature
         run: |
           firstline=`echo "${{ github.event.issue.body }}" | head -1`
-          title=`echo $firstline | cut -d " " -f 3`
-          number=`echo $firstline | cut -d " " -f 4 | cut -c2-`
+          title=`echo $firstline | cut -d ":" -f 2`
+          number=`echo $firstline | cut -d " " -f 1 | cut -c2-`
           
           echo "::set-output name=title::$title"
           echo "::set-output name=number::$number"
@@ -23,9 +23,9 @@ jobs:
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.PROJECT_TOKEN }}
-          title: "[Implementation] ${{ steps.feature.outputs.title }}"
+          title: "[Implementation]${{ steps.feature.outputs.title }}"
           body: |
-            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
             - [ ] Code
             - [ ] Push
           labels: |
@@ -36,9 +36,9 @@ jobs:
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.PROJECT_TOKEN }}
-          title: "[Security] ${{ steps.feature.outputs.title }}"
+          title: "[Security]${{ steps.feature.outputs.title }}"
           body: |
-            Feature : ${{ steps.feature.outputs.title }} #${{ steps.feature.outputs.number }}
+            #${{ steps.feature.outputs.number }} Feature :${{ steps.feature.outputs.title }} 
             - [ ] Container Scan
             - [ ] Code Scan
           labels: |
