@@ -21,12 +21,12 @@ jobs:
           
       - uses: actions-ecosystem/action-add-labels@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           labels: bug
           
       - uses: actions-ecosystem/action-add-assignees@v1
         with:
-          github_token: ${{ secrets.PROJECT_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_TOKEN }}
           assignees: ${{ steps.codeowner.outputs.codeowner }}
           
 #       - name: Send message to Slack API
